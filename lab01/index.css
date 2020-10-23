@@ -1,0 +1,32 @@
+body {
+	background-color: #d3e0ed;
+	font-size: 14pt;
+}
+
+h3{
+	font-size: 19pt;
+}
+
+.hPrincipale {
+	font-size: 28pt;
+	text-align: center;
+	background-color: #689CCC;
+}
+
+.int{
+	background-color: #689CCC;
+}
+
+a:link{
+	color: #000000;
+}
+a:hover{
+	color: #000000;
+}
+a:visited{
+	color: #630d5b;
+}
+
+table {
+	width: 250pt;
+}

@@ -1,0 +1,51 @@
+h1, h2, h3, h4, h5, h6 {
+	color: #A4A400;
+	background-color: #F0F0F0 ;
+	font-family: "Lucida Sans Unicode", Helvetica, Arial, "sans-serif";
+	font-size: 18pt;
+	text-align: left;
+	text-decoration: underline;
+
+	letter-spacing: 0.25em;
+}
+
+hr {
+	height: 3px;
+	background-color: blue;
+	border-width: 0;
+}
+body {
+	background-color: white;
+	font-size: 11pt;
+	font-family: Georgia, Garamond, serif;
+	color: #404040;
+}
+
+a {
+	color: #A4A400;
+}
+
+img.image {
+	height: 240px;
+	width: 240px;
+	float: right;
+}
+
+abbr {
+	text-decoration: underline;
+}
+
+.initLink {
+	background-color: #F0F0F0;
+	font-size: 13pt;
+}
+
+.hPrincipale {
+	font-weight: bold;
+	font-size: 22pt;
+	text-align: center;
+}
+
+div.myDiv {
+  	overflow: auto;
+}
