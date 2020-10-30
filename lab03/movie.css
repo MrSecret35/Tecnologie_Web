@@ -1,0 +1,179 @@
+/* File realizzato da
+	Giorgio Mecca
+	Mat: 880847
+*/
+/*file di stile per la pagina tmnt.html */
+
+/*corpo della pagina*/
+body {
+	background-image: url(http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/background.png);
+	background-repeat: repeat;
+	font-size: 8pt;
+	font-family: Verdana, Tahoma, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*banner in alto alla pagina*/
+div.banner {
+	background-image: url(http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/bannerbg.png);
+	background-repeat: repeat-x;
+	height: 50px;
+}
+
+/*immagine al centro del banner iniziale */
+img.bannerP {
+	display:block;
+	margin: auto;
+	height: 50px;
+}
+
+/*intestazioni principali come Titolo */
+#hPrincipale {
+	font-weight: bold;
+	font-size: 24pt;
+	font-family: Tahoma, Verdana, "sans-serif";
+	text-shadow: 3px 3px  #999999;
+	text-align: center;
+}
+
+/*area di testo principale*/
+div.pBlock {
+	margin: auto;
+	max-width: 800px;
+	border-style: solid;
+	border-width: 4px;
+	border-radius: 10px;
+	box-sizing: border-box;
+
+	background-image: url(http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rbg.png);
+	background-repeat: repeat-x;
+	overflow: auto;
+}
+
+div.headerDiv {
+	height: 83px;
+	
+	float: top;
+
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+#headerText {
+	font-size: 48pt;
+	font-weight: bold;
+	color: red;
+	display: inline-block;
+	margin: 0px;
+	text-align: center;
+	position: absolute;
+}
+
+img.headerDivImg {
+	height: 83px;
+	border-radius: 10px;
+}
+
+/*sezione di General Overview*/
+div.GeneralO {
+	background-color:  #A2B964;
+	box-sizing: border-box;
+	width: 250px;
+	
+	font-size: 8pt;
+	font-family: Arial, "sans-serif";
+	float: right;
+	margin: 0px;
+	position: relative;
+	border-top-right-radius: 20px;
+}
+
+div.GeneralO dl{
+	padding: 10pt;
+}
+
+dt{
+	padding-top: 10pt;
+	font-weight: bold;
+}
+ 
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*blocco contenente le 2 colonne di recensioni*/
+.recensioni{
+	display: block;
+	position: relative;
+	width: 550px;
+	padding: 2%;
+	box-sizing: border-box;
+}
+.recensioni div:first-child{
+	margin-right: 2%;
+}
+
+/*colonna di recensioni*/
+.colonna {
+	display: inline-block;
+	width: 47%;
+	margin: 0%;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+
+/*blocco della recensione*/
+.rec {
+	margin-bottom: 20pt;
+	overflow: auto;
+}
+
+.critica{
+	box-sizing: border-box;
+	padding-top: 8pt;
+	font-weight: bold;
+	background-color: #E8DC9B;
+	border-color: grey;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 10px;
+	padding: 8px;
+
+	position: relative;
+	margin: 0px;
+	overflow: auto;
+}
+
+.autore{
+	box-sizing: border-box;
+	font-style: italic;
+}
+
+p.critica img, p.autore img {
+	margin-right: 5px;
+	float: left;
+}
+
+.clean {
+	clear: right;
+	border: 0px;
+	margin: 0px;
+}
+
+/*blocco del numero di recensioni*/
+.footerDiv {
+	background-color: #A2B964;
+	padding:5px;
+	text-align: center;
+	position: relative;
+}
+
+.footer{
+	opacity: 50%;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+}
