@@ -21,7 +21,7 @@
             $path= $_FILENAME. "\info.txt"; // creo il path delle info del film scelto 
             $_INFO= file_get_contents($path);
             $info = explode("\n",$_INFO);
-            $info = array("titolo" => $info[0], "anno" => $info[1], "perc" => $info[2]);
+            $info = array("titolo" => trim($info[0]), "anno" => trim($info[1]), "perc" => trim($info[2]));
         ?>
 		<div  class="banner">
 			<img class="bannerP" src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/banner.png" alt="Rancid Tomatoes">
@@ -44,8 +44,8 @@
                         foreach($overview as $row){
                             $row= explode(":", $row);
                     ?>
-					<dt><?= $row[0] ?></dt>
-                    <dd><?= $row[1] ?></dd>
+					<dt><?= trim($row[0]) ?></dt>
+                    <dd><?= trim($row[1]) ?></dd>
                     
                     <?php
                         }
@@ -89,7 +89,7 @@
 					<div class="rec">
 						<p class="critica">
 							<?php
-								if($review[1] == "ROTTEN"){
+								if(trim($review[1]) == "ROTTEN"){
 							?>
 							<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten">
 							<?php
@@ -125,7 +125,7 @@
 					<div class="rec">
 						<p class="critica">
 							<?php
-								if($review[1] == "ROTTEN"){
+								if(trim($review[1]) == "ROTTEN"){
 							?>
 							<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten">
 							<?php
