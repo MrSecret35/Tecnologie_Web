@@ -1,0 +1,28 @@
+body {
+	font-style: italic;
+	font-size: 14pt;
+	text-align: center;
+}
+
+#puzzlearea{
+	width: 400px;
+	height: 400px;
+	margin: auto;
+	font-size: 0pt;
+	position: relative;
+}
+
+.div-game{
+	position: absolute;
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	border: solid black 5px;
+	display: inline-block;
+	font-size: 40pt;
+}
+
+.div-game-m:hover{
+	color: red;
+	border: solid red 5px;
+}
