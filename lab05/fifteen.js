@@ -2,6 +2,11 @@ var blocchi = new Array();
 var posBlank= new Array();
 var DIM=100;
 
+/*
+ *
+ *@author Giorgio Mecca
+ * 880847
+*/
 window.onload= function(){
 
 	inizializeBlock();
@@ -13,15 +18,8 @@ window.onload= function(){
 function inizializeBlock(){
 
 	var panel = document.getElementById("puzzlearea");
-	//creo e setto il div vuoto
-	/*
-	var ultimateDiv = document.createElement("div");
-	ultimateDiv.innerHTML="b"; // b for blank
-	ultimateDiv.classList.add("div-game-blank");
-	panel.appendChild(ultimateDiv);
-	posBlank=15;
-	*/
-	//inizializzo la var globale blocchi come arry contenente i children di puzzlearea
+
+	//posizione del div blank
 	posBlank["x"]=3;
 	posBlank["y"]=3;
 
@@ -46,6 +44,7 @@ function inizializeBlock(){
 		}
 	}
 }
+
 function makeID(a,b){
 	return "tile_" + a + "_" +b;
 }
@@ -55,7 +54,6 @@ function undoID(str){
 	b[1]= str.charAt(7);
 	return b;
 }
-
 
 function shuffle(){//mescola i vari blocchi 
 	for(var i= 0; i<  Math.floor(Math.random() * 20) + 20; i++){
@@ -103,6 +101,10 @@ function mouseOUT(){
 	this.classList.remove("div-game-m");
 }
 
+/*
+ * Controllo per un div id se si può muovere
+ * (se ha affianco il blocco vuoto)
+ */
 function canMove(id){
 	var b = undoID(id);
 	if((b[0] - parseInt(posBlank["x"])) == -1 || (b[0] - parseInt(posBlank["x"])) == 1)
@@ -116,28 +118,57 @@ function canMove(id){
 	return false;
 }
 
+/*
+ * Effettua una mossa e controlla la vittoria
+*/ 
 function move(){ 
 	if(canMove(this.id)){
 		swapElementsBlank(this.id);
 
-		if(controllo()){
-			console.log("vittoriaa");
-		}
+		if(controllo()){ victory();}
 	}
 	
 }
 
+/*
+ * Controlla la vittoria
+*/ 
 function controllo(){
 	if(posBlank["x"] != 3 || posBlank["y"] != 3) return false;
 	for (var i = 0; i < 4; i++) {
 		for (var j = 0; j < 4 && !(i==3 && j==3); j++) {
-			var top= (i*DIM) + "px"; var left=(j*DIM) + "px";
 			var elem = blocchi[makeID(i,j)];
-			if(elem.style.top != top || elem.style.left != left){
+			var tmp= elem.style.backgroundPosition;
+			tmp= tmp.split(" ");
+			tmp[0]= tmp[0].replace("-", ""); 
+			tmp[1]= tmp[1].replace("-", ""); 
+			if(elem.style.top != tmp[1] || elem.style.left != tmp[0]){
 				return false;
 			}
 			
 		}
 	}
 	return true;
+}
+
+function victory(){
+	document.getElementById("puzzlearea").style.visibility='hidden';
+	document.getElementById("shufflebutton").style.visibility='hidden';
+	var b = document.createElement("button");
+	b.id="B";
+	b.innerHTML="New Game";
+	var s = document.createElement("span");
+	s.innerHTML="Congratulation!! Victory      ";
+	s.id="S";
+
+	b.onclick= function(){
+		document.getElementById("puzzlearea").style.visibility='visible';
+		document.getElementById("shufflebutton").style.visibility='visible';
+		document.getElementById("controls").removeChild(document.getElementById("B"));
+		document.getElementById("controls").removeChild(document.getElementById("S"));
+	};
+
+	document.getElementById("controls").appendChild(s);
+	document.getElementById("controls").appendChild(b);
+
 }
