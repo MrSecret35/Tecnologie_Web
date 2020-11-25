@@ -1,0 +1,29 @@
+body{
+    background-color: #dad9d4;
+    margin: auto;
+    font-family: Verdana , "sans-serif";
+    text-align: center;
+}
+
+#banner, #w3c{
+    background-color: black;
+    padding: 5px;
+}
+fieldset{
+    width: 24em;
+    margin: auto;
+    text-align: center;
+}
+
+table{
+    
+    border: 1px solid gray;
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+tr:nth-child(even) {
+    background-color: #adb28b;
+} 
+
