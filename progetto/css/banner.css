@@ -1,0 +1,63 @@
+body{
+    margin: 0%;
+}
+
+#banner_logo{
+    cursor: pointer;
+}
+
+#banner{
+    background-color: gray;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    padding: 0.3em 1.4em 0em 1.4em;
+}
+#banner_logo{
+    float: left;
+    height: 100%;
+    object-fit: contain;
+}
+#cart_img{
+    position: static;
+    display: flex;
+    float: none;
+    width: 54px;
+    height: 40px;
+}
+#profilo_img{
+    position: static;
+    display: flex;
+    float: none;
+    width: 54px;
+    height: 40px;
+}
+#banner_div{
+    float: right;
+    font-size: 18pt;
+    letter-spacing: 5pt;
+}
+.banner_btn{
+    border: 2px;
+    text-align: center;
+    color: white;
+    margin: 0px 15px 0px 0px;
+    display: inline-block;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 0px 0px 4px;
+    padding-left: 16px;
+    cursor: pointer;
+}
+
+#bottom{
+    background-color: gray;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    height: 110px;
+}
+
+#w3c{
+    float: left;
+}

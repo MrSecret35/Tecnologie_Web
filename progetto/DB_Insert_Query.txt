@@ -1,0 +1,14 @@
+INSERT INTO Users VALUES (1, 'mario@gmail.com', '1234', 'Mario', 'Mario');
+INSERT INTO Users VALUES (2, 'luigi@gmail.com', '1234', 'Luigi', 'Mario');
+INSERT INTO Users VALUES (3, 'wario@gmail.com', '1234', 'Wario', 'Mario');
+INSERT INTO Users (ID, EMail, Psw) VALUES (4, 'Azienda1@Azienda.com', '1234');
+INSERT INTO Users (ID, EMail, Psw) VALUES (5, 'Azienda2@Azienda.com', '1234');
+INSERT INTO Business (Name, Description, ID) VALUES ('Azienda1', 'Azienda Leader nel Settore Tessile dal 1680', 4);
+INSERT INTO Business (Name, Description, ID, Link, PhoneN) VALUES ('Azienda2', 'Nuova azienda nel commercio Droni della IOT Generation', 5, 'Azienda2.com' , '7756219776');
+INSERT INTO Categories VALUES ('Tecnologia');
+INSERT INTO Categories VALUES ('Abbigliamento');
+INSERT INTO Categories VALUES ('Varie');
+INSERT INTO Products VALUES (1, 'Drone Bello', 'Un drone di 10th Gen - Usa 2 Pile Stilo AA - Velocita massima: 124 KM/H', null, 5, 'Tecnologia',  2500, 0, 5); 
+INSERT INTO Products VALUES (2, 'Drone Meno Bello', 'Un drone di 7th Gen - Usa 2 Pile Stilo AA - Velocita massima: 24 KM/H',null, 15, 'Tecnologia', 700, 10, 5);
+INSERT INTO Products VALUES (3, 'Maglia Super!!1!', 'Maglia della collezione Super - ORIGINAL - LIMITED', null, 15, 'Abbigliamento', 50, 0, 4);
+INSERT INTO Products VALUES (4, 'Pantalone Super!!1!', 'Pantalone della collezione Super - ORIGINAL - LIMITED', null, 25, 'Abbigliamento', 80, 0, 4);

@@ -1,0 +1,132 @@
+body{
+    margin: 0%;
+}
+
+hr{
+    border: 0px;;
+    height: 2px;
+    clear: both;
+}
+#body-block{
+    box-sizing: border-box;
+    width: 80%;
+    margin: auto;
+    border: 2px solid;
+    overflow: auto;
+}
+
+#search{
+    width: 50%;
+    border: 2px solid orange;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right: 25%;
+    margin-top: 1.5%;
+}
+#search_icon{
+    width: 7%;
+    display: inline-block;
+    margin-left: 0.7em;
+    cursor: pointer;
+}
+#search_bar{
+    width: 93%;
+}
+
+#choices{
+    float: left;
+    border: 2px solid orange;
+    width: 20%;
+    box-sizing: border-box;
+    margin: 2.5% 0% 0% 2.5%;
+}
+
+#products{
+    float: right;
+    border: 2px solid orange;
+    width: 70%;
+    box-sizing: border-box;
+    margin-right: 3.5%;
+    margin-top: 2.5%;
+}
+
+#ul_products{
+    border: 2px solid GREEN;
+    margin: 2%;
+    padding: 1.5%;
+}
+
+#ul_products .li_product{
+    width: 90%;
+    border: solid 2px red;
+    height: 250px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    display: inline-flex;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16pt;
+}
+#ul_products .li_product:hover{
+    height: 280px;
+    font-size: 18pt;
+}
+
+.li_product .span_product{
+    width: 100%;
+    display: inline-flex;
+    cursor: pointer;
+}
+.span_product .div_img_product{
+    width: 30%;
+    box-sizing: border-box;
+    margin: 12px;
+}
+
+.img_product{
+    width: auto;
+    height: 100%;
+}
+
+.span_product  .div_Str_product{
+    width: 70%;
+    height: min-content;
+    line-height: 2;
+    box-sizing: border-box;
+    margin: 25px;
+}
+
+#page_products{
+    border: solid 2px red;
+    margin: 10px 160px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+#page_products ul{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+}
+
+#page_products li{
+    background-color: #FF831C;
+    display: block;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-size: 25pt;
+    margin-left: 6px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+#page_products li:hover{
+    background-color:#a35514;
+    width: 55px;
+    height: 38px;
+}

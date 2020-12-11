@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Best-E.Commerce-Ever</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <meta charset="UTF-8">
+
+        <script src= "../js/login.js" ></script>
+        <link href="../css/login.css" type="text/css" rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <div id = "rightBlock">
+            <div id="Login" class="inBlock">
+                <h1>Login</h1>
+                <span class="ErrorSTR" ></span>
+                <hr>
+                Mail: <input id="mail_login" type="text" size="32"> <br>
+                <hr>
+                Password: <input id="psw_login" type="password" size="20"> <br>
+                <hr>
+                <div class="button">
+                    <button id="LoginBTN">Login</button>
+                </div>
+                <p id="p_registration">Non hai un account??  <span id="p_registration_btn">Registrati</span></p>
+            </div>
+           
+            <div id="Registration"  class="inBlock">
+                <h1>Registrazione</h1>
+                <span class="ErrorSTR" ></span>
+                <hr>
+                Mail: <input id="mail_reg" type="text" size="32"> <br>
+                <hr>
+                Password: <input id="psw_reg" type="password" size="20"> <br>
+                <hr>
+                Repet Password: <input id="psw1_reg" type="password" size="20"> <br>
+                <hr>
+                <!--
+                <div class="button">
+                    <button id="BTNUser">Utente</button> <button id="BTNBusiness">Azienda</button>
+                    <input type="radio">
+                </div>
+                -->
+                <div class="radio-group">
+                    <div class="radio-btn">
+                        <input id="BTNUser" type="radio" name="BTNReg" value="User" checked> 
+                        <label for="BTNUser">Utente</label>
+                    </div>
+                    <div class="radio-btn">
+                        <input id="BTNBusiness" type="radio" name="BTNReg" value="Business"> 
+                        <label for="BTNBusiness">Azienda</label>
+                    </div>
+                </div>
+                <hr>
+                <div id="User">
+                    Nome: <input id="name_u_reg" type="text" size="32"> <br>
+                    <hr>
+                    Cognome: <input id="surname_u_reg" type="text" size="32"> <br>
+                    <hr>
+                </div>
+                <div id="Business">
+                    Nome: <input id="name_b_reg" type="text" size="32"> <br>
+                    <hr>
+                    Descrizione <textarea id="desc_b_reg" cols="32"></textarea> <br>
+                    <hr>
+                    Link: <input id="link_b_reg" type="text" size="32"> <br>
+                    <hr>
+                    Contatto(Telefono): <input id="tel_b_reg" type="text" size="10"> <br>
+                </div>
+                <hr>
+                <div class="button">
+                    <button id="RegistrationBTN">Registrati</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
