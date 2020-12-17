@@ -32,6 +32,45 @@ body{
     width: 54px;
     height: 40px;
 }
+
+#profilo:hover #lista_profilo{
+    display: initial;
+    display: flex;
+}
+
+#lista_profilo{
+    display: none;
+}
+#lista_profilo ul{
+    position: absolute;
+    left: 0;
+    list-style-type: none;
+    margin: 0px;
+    border-top: 7px solid white;
+	width: 100%;
+	transform-origin: top;
+    transition: transform 0.3s linear;
+    background-color: #fbca00;
+    padding: 0px;
+    width: 190px;
+    border-radius: 0px 12px 12px 12px;
+    margin-left: -4px;
+}
+
+#lista_profilo ul li{
+    padding: 0.4em;
+    text-align: center;
+    color: black;
+    font-size: 16pt;
+    font-family: Helvetica;
+}
+#lista_profilo ul hr{
+    margin: 0px;
+    height: 5px;
+    background: yellow;
+}
+
+
 #banner_div{
     float: right;
     font-size: 18pt;
@@ -48,6 +87,7 @@ body{
     border-width: 0px 0px 0px 4px;
     padding-left: 16px;
     cursor: pointer;
+    position: relative;
 }
 
 #bottom{
@@ -61,3 +101,4 @@ body{
 #w3c{
     float: left;
 }
+

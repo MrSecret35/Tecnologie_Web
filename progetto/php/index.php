@@ -15,6 +15,7 @@ session_destroy();
 ?>
 <?php include("../html/top.html");?>
 <script src= "../js/home.js" ></script>
+<link href="../css/home.css" type="text/css" rel="stylesheet" >
 
 </head>
 <body>
