@@ -1,8 +1,17 @@
-NUM_ELEM_PAG= 10;
+NUM_ELEM_PAG= 3;
+
 $(function(){
     $("#search_icon").click(search);
 
+    $(document).keypress(function(e) { 
+        if(e.which == 13) { 
+            search();
+        } 
+    });
+
     setCategories();
+
+    allProduct();
 });
 
 function search(){
@@ -13,37 +22,52 @@ function search(){
             type: "GET",
             datatype: "json",
             success: showResultSearch,
-            error: ajaxFailed 
         });
     }
 }
 
+function allProduct(){
+    $.ajax({
+        url: "../php/product.php",
+        type: "GET",
+        datatype: "json",
+        success: showResultSearch,
+    });
+}
 /*
-* crea e mostra i primi 10 prodotti e le prime 4 pagine
+* crea e mostra i primi NUM_ELEM_PAG prodotti e le prime 4 pagine
 */ 
 function showResultSearch(json){
     
-    showTenResult(json,1);//mostro i primi 10 result
+    showNResult(json,1);//mostro i primi NUM_ELEM_PAG result
 
     createPage(json);
     showFourPage(1); //mostro le prime 4 pagine
+    if(JSON.parse(json).length == 0){
+        $("#notification").html("La tua ricerca non ha prodotto risultati");
+    }
+    
     
 }
 
 /*
-* crea gli elem lista dei 10 prodotti da mostrare 
+* crea gli elem lista dei NUM_ELEM_PAG prodotti da mostrare 
 */ 
-function showTenResult(json,num){
+function showNResult(json,num){
     
     var data= JSON.parse(json);
 
     $("#ul_products").empty();
-    for(i= ((num-1)*10); i< data.length && i< (num*10)-1; i++){
+    for(i= ((num-1)*NUM_ELEM_PAG); i< data.length && i< (num*NUM_ELEM_PAG); i++){
         
         var element= data[i];
 
+        
+
         var li= $('<li></li>');
         li.addClass("li_product");
+        var a = $('<a></a>')
+        a.attr("href", "../php/productPage.php?ID_Product="+element.ID);
 
             var span = $('<span></span>');
             span.addClass("span_product");
@@ -52,7 +76,8 @@ function showTenResult(json,num){
                 div1.addClass("div_img_product");
                     var img = $('<img></img>')
                     img.addClass("img_product");
-                    img.attr("src", "../img/img.png");//attenzione qui devi mettere l'immagine del db
+                    if (element.Img != null) img.attr("src", "data:image/  png;base64," + element.Img);
+                    else img.attr("src", "../img/img.png");
                 div1.append(img);
                 var div2 = $('<div></div>');
                 div2.addClass("div_Str_product");
@@ -64,8 +89,12 @@ function showTenResult(json,num){
 
             span.append(div1);
             span.append(div2);
-        li.append(span);
+        a.append(span);
+
+        li.append(a);
         $("#ul_products").append(li);
+        //a.append(li);
+        //$("#ul_products").append(a);
     }
 }
 
@@ -77,8 +106,8 @@ function createPage(json){
 
     $("#page_products ul").empty();
 
-    var numPage = parseInt(data.length)/10;
-    for(var j=0; j<= numPage && data.length!=0 ; j++){
+    var numPage = parseInt(data.length)/NUM_ELEM_PAG;
+    for(var j=0; j< numPage && data.length!=0 ; j++){
         var li = $('<li></li>');
         li.html(j+1);
         
@@ -88,7 +117,7 @@ function createPage(json){
 
         li.click(function (){
             var num= parseInt($(this).attr("id").charAt(14));
-            showTenResult(json,num);
+            showNResult(json,num);
             showFourPage(num);
         });
         
@@ -123,7 +152,6 @@ function setCategories(){
         url: "../php/categories.php",
         datatype: "json",
         success: showCategories,
-        error: ajaxFailed
     });
 }
 
@@ -139,18 +167,10 @@ function showCategories(json){
                 type: "GET",
                 datatype: "json",
                 success: showResultSearch,
-                error: ajaxFailed 
                 })
             }
         );
 
         $("#categories").append(li);
     });
-}
-
-function ajaxFailed(e) {
-	var errorMessage = "Error making Ajax request:\n\n";
-	errorMessage += "Server status:\n" + e.status + " " + e.statusText + 
-		                "\n\nServer response text:\n" + e.responseText;
-    alert(errorMessage);
 }

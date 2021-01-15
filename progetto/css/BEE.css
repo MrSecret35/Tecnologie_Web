@@ -1,0 +1,47 @@
+body{
+    margin: 0%;
+}
+
+hr{
+    border: 0px;
+    height: 2px;
+    clear: both;
+}
+
+#body-block{
+    box-sizing: border-box;
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    min-height: 850px;
+}
+
+.ErrorSTR{
+    color: red;
+    font-size: 14pt;
+}
+
+.button{
+    float: right;
+    font-size: 16pt;
+    margin-right: 4%;
+    background-color: #40E0D0;
+    padding: 10px 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.button:hover{
+    box-shadow: 5px 5px 5px 5px #6495ED;
+}
+
+.input{
+    font-size: 18px;
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: 180ms box-shadow;
+    margin-top: 8px;
+}

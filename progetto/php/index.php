@@ -50,6 +50,7 @@ session_destroy();
         </ul>
         </div>
         -->
+        <span id="notification"></span>
         <ul id="ul_products">
 
         </ul>

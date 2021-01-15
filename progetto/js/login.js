@@ -30,7 +30,7 @@ function LoginBTN(){
                     $(".ErrorSTR").text(JSON.parse(json).StrErr);
                 }
             },
-            error: ajaxFailed         
+            error: function(){$(".ErrorSTR").text("Error\n Server Offline");},        
         });
     }else $(".ErrorSTR").text("Mail non Valida");
     }else $(".ErrorSTR").text("Campi vuoti!!!");
@@ -73,7 +73,7 @@ function RegistrationBTN(){
                     $(".ErrorSTR").text(JSON.parse(json).StrErr);
                 }
             },
-            error: ajaxFailed         
+            error: function(){$(".ErrorSTR").text("Error\n Server Offline");},         
         });
     }else $(".ErrorSTR").text("Mail non Valida");
     }else $(".ErrorSTR").text("Le Password non corrispondono");
@@ -108,11 +108,4 @@ function setRegistration_Business(){
 
 function verifymailtype(str){
     return str.indexOf('@') != -1 && str.indexOf('.',str.indexOf('@'))!= -1;
-}
-
-function ajaxFailed(e) {
-	var errorMessage = "Error making Ajax request:\n\n";
-	errorMessage += "Server status:\n" + e.status + " " + e.statusText + 
-		                "\n\nServer response text:\n" + e.responseText;
-    alert(errorMessage);
 }

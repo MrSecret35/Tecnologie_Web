@@ -94,11 +94,6 @@ button:visited {
     font-size: 18pt;
 }
 
-.ErrorSTR{
-    color: red;
-    font-size: 14pt;
-}
-
 .radio-group{
     display: flex;
 }

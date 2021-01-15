@@ -1,0 +1,79 @@
+#body-block ul{
+    margin: 2%;
+    padding: 1.5%;
+}
+
+#body-block ul li{
+    width: 90%;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    display: inline-flex;
+    font-size: 16pt;
+}
+#body-block ul li a{
+    width: 70%;
+    display: inline-flex;
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+#body-block ul li a span{
+    width: 100%;
+    display: inline-flex;
+    cursor: pointer;
+}
+#body-block ul li a span #div_img_product{
+    width: 30%;
+    box-sizing: border-box;
+    margin: 12px;
+}
+
+#body-block ul li a span #div_Str_product{
+    width: 50%;
+    height: min-content;
+    line-height: 2;
+    box-sizing: border-box;
+    margin: 25px;
+}
+#body-block ul li #div_choise_product{
+    width: 20%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+#div_choise_product button{
+    margin: 50px 0px 20px 40px;
+    background: 0;
+    border: 0;
+    font-size: 14pt;
+}
+
+#div_img_product img{
+    width: auto;
+    height: 100%;
+}
+#body-block ul li a{
+    color: black;
+}
+
+/* unvisited link */
+#body-block ul li a:link {
+    color: black;
+}
+  
+/* visited link */
+#body-block ul li a:visited {
+    color: black;
+}
+  
+/* mouse over link */
+#body-block ul li a:hover {
+    color: black;
+}
+  
+/* selected link */
+#body-block ul li a:active {
+    color: black;
+}

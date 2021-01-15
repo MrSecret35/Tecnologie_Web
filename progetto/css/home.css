@@ -1,23 +1,5 @@
-body{
-    margin: 0%;
-}
-
-hr{
-    border: 0px;;
-    height: 2px;
-    clear: both;
-}
-#body-block{
-    box-sizing: border-box;
-    width: 80%;
-    margin: auto;
-    border: 2px solid;
-    overflow: auto;
-}
-
 #search{
     width: 50%;
-    border: 2px solid orange;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -33,22 +15,32 @@ hr{
 }
 #search_bar{
     width: 93%;
+    font-size: 18px;
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-top: 8px;
 }
 
 #choices{
     float: left;
-    width: 20%;
+    min-width: 20%;
     box-sizing: border-box;
-    margin: 2.5% 0% 0% 2.5%;
+    margin: 10.5% 0% 0% 2.5%;
 
-    border: 2px solid orange;
     background-color: antiquewhite;
-    border-radius: 40px;
+    border-radius: 18px;
+}
+
+#notification{
+    color: #404040;
+    font-size: 22pt;
 }
 
 #products{
     float: right;
-    border: 2px solid orange;
     width: 70%;
     box-sizing: border-box;
     margin-right: 3.5%;
@@ -56,14 +48,36 @@ hr{
 }
 
 #ul_products{
-    border: 2px solid GREEN;
     margin: 2%;
     padding: 1.5%;
 }
 
-#ul_products .li_product{
+#ul_products li a{
+    color: black;
+}
+
+/* unvisited link */
+#ul_products li a:link {
+    color: black;
+  }
+  
+  /* visited link */
+#ul_products  li a:visited {
+    color: black;
+  }
+  
+  /* mouse over link */
+#ul_products li a:hover {
+    color: black;
+  }
+  
+  /* selected link */
+#ul_products  li a:active {
+    color: black;
+  }
+
+#ul_products .li_product, #ul_products .li_product a{
     width: 90%;
-    border: solid 2px red;
     height: 250px;
     margin-top: 20px;
     margin-bottom: 0px;
@@ -72,12 +86,15 @@ hr{
     transition: all 0.2s;
     font-size: 16pt;
 }
-#ul_products .li_product:hover{
+#ul_products .li_product a{
+    text-decoration: none;
+}
+#ul_products .li_product:hover, #ul_products .li_product a:hover{
     height: 280px;
     font-size: 18pt;
 }
 
-.li_product .span_product{
+.li_product a .span_product{
     width: 100%;
     display: inline-flex;
     cursor: pointer;
@@ -102,7 +119,6 @@ hr{
 }
 
 #page_products{
-    border: solid 2px red;
     margin: 10px 160px;
     height: 45px;
     display: flex;
@@ -132,25 +148,6 @@ hr{
     width: 55px;
     height: 38px;
 }
-/*
-#page_products li{
-    display: block;
-    text-align: center;
-    padding: 0 25px;
-    float: left;
-    transition: 400ms ease;
-    color: #595959;
-    font-size: 20px;
-    letter-spacing: 0.1em;
-    height: 100%;
-    background-color: lightgray;
-    cursor: pointer;
-}
-#page_products li:hover{
-    background-color:#86c023;
-    color: white;
-}
-*/
 
 #categories{
     font-size: 16pt;
@@ -163,3 +160,4 @@ hr{
     width: max-content;
     max-width: 100%;
 }
+

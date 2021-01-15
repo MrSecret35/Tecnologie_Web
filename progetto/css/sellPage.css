@@ -1,0 +1,45 @@
+#sell_div{
+
+    margin-left: 5%;
+    overflow: auto;
+
+    background-color: #e6e6e6;
+    border-radius: 5px;
+}
+
+#sell_div h1{
+    margin-left: 10%;
+}
+
+#sell_div ul{
+    list-style-type: none;
+}
+
+#sell_div li{
+    font-size: 18pt;
+    margin-bottom: 35px;
+}
+
+.input{
+    display: flex;
+    margin-left: 2.5%;
+}
+
+textarea{
+    vertical-align: baseline;
+    height: 130px;
+}
+
+.input:focus{
+    border: 2px solid blue;
+    box-shadow: 5px 5px 5px 5px #6495ED;
+}
+
+
+.ErrorStr{
+    font-size: 12pt;
+}
+
+.button{
+    margin-right: 20%;
+}

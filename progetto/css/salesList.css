@@ -1,0 +1,35 @@
+#body-block ul li{
+    width: 70%;
+    display: inline-flex;
+    height: 280px;
+}
+
+#body-block ul li span{
+    width: 100%;
+    display: inline-flex;
+}
+#body-block ul li span #div_img_product{
+    width: 30%;
+    box-sizing: border-box;
+    margin: 12px;
+}
+
+#body-block ul li span #div_Str_product{
+    width: 60%;
+    height: min-content;
+    line-height: 2;
+    box-sizing: border-box;
+    margin: 25px;
+}
+#body-block ul li span #div_choise_product{
+    width: 10%;
+}
+#body-block ul li{
+}
+#body-block ul li table{
+    margin-top: 10px;
+}
+#body-block ul li table tr td p{
+    margin: 0px;
+    line-height:1;
+}

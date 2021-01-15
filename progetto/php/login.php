@@ -12,8 +12,12 @@ try {
 
     $id_user= $db->query("SELECT ID,Psw FROM Users WHERE EMail LIKE $mail");
 
+    
     print "{\n \"result\": ";
     $result= $id_user->fetch();
+    $id= $result["ID"];
+    //controllo se l'utente è un Business
+    
 
     if($result==FALSE){
         print "\"FALSE\", \n";
@@ -21,8 +25,14 @@ try {
     }else if(strcmp($result["Psw"] , $_POST["Psw"]) ==0){
         print "\"TRUE\", \n";
         print " \"StrErr\": \"\" ";
+
+        $userB= $db->query("SELECT * FROM Business WHERE ID = $id")->fetch();
+
         session_start();
-        $_SESSION["ID"]= $result["ID"];
+        $_SESSION["ID"]= $id;
+        if($userB != FALSE) $_SESSION["UserBusiness"]= TRUE;
+        else $_SESSION["UserBusiness"]= FALSE;
+
     }else{
         print "\"FALSE\", \n";
         print " \"StrErr\": \"Password Errata\" ";

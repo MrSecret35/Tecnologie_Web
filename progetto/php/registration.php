@@ -14,8 +14,8 @@ try {
     $result= $id_user->fetch();
     if($result==FALSE){
         if(strcmp($_POST["Type"],"User") == 0){
-            $name= isset($_POST["Name"]) ? $db->quote($_POST["Name"]) : null;
-            $surname= isset($_POST["Surname"]) ? $db->quote($_POST["Surname"]) : null;
+            $name= isset($_POST["Name"]) ? $db->quote($_POST["Name"]) : "NULL";
+            $surname= isset($_POST["Surname"]) ? $db->quote($_POST["Surname"]) : "NULL";
             $db->query("INSERT INTO Users (EMail,Psw,Name,Surname) VALUES ($mail,$psw,$name,$surname);");
             
             $id_user= $db->query("SELECT ID FROM Users WHERE EMail LIKE $mail");
@@ -29,10 +29,10 @@ try {
 
             $id= $db->quote($id_user);
 
-            $name= isset($_POST["Name"]) ? $db->quote($_POST["Name"]) : null;
-            $desc= isset($_POST["Desc"]) ? $db->quote($_POST["Desc"]) : null;
-            $link= isset($_POST["Link"]) ? $db->quote($_POST["Link"]) : null;
-            $tel= isset($_POST["Tel"]) ? $db->quote($_POST["Tel"]) : null;
+            $name= isset($_POST["Name"]) ? $db->quote($_POST["Name"]) : "NULL";
+            $desc= isset($_POST["Desc"]) ? $db->quote($_POST["Desc"]) : "NULL";
+            $link= isset($_POST["Link"]) ? $db->quote($_POST["Link"]) : "NULL";
+            $tel= isset($_POST["Tel"]) ? $db->quote($_POST["Tel"]) : "NULL";
     
             
             $db->query("INSERT INTO Business VALUES ($name,$desc,$link,$tel,$id);");
@@ -45,6 +45,8 @@ try {
 
         session_start();
         $_SESSION["ID"]= $id_user;
+        if(strcmp($_POST["Type"],"User") != 0) $_SESSION["UserBusiness"]= TRUE;
+        else $_SESSION["UserBusiness"]= FALSE;
 
     }else{
         print "{\n \"result\": ";
