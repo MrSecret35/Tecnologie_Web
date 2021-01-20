@@ -4,6 +4,9 @@ $(function(){
     $("#newProductBTN").click(newProduct);
 });
 
+/*
+ * funzione che richiede al server le categorie possibili
+ */
 function setCategories(){
     $("#category").empty();
     $.ajax({
@@ -13,6 +16,10 @@ function setCategories(){
     });
 }
 
+/*
+ * funzione che mostra le categorie da scegliere
+ * json: lista di categorie
+ */
 function showCategories(json){
     var data= JSON.parse(json);
     data.forEach(elem => {
@@ -23,7 +30,9 @@ function showCategories(json){
     });
 }
 
-
+/*
+ * funzione che aggiunge un nuovo prodotto
+ */
 function newProduct(){
     var data= new Array();
     data['name'] = $("#sell_div #name").val();
@@ -68,6 +77,9 @@ function newProduct(){
 
 }
 
+/*
+ * funzione che controlla i dati del "nuovo" prodotto
+ */
 function controllaDati(data){
     if(data['name'].length >= 1)
     if(data['desc'].length >= 1) 

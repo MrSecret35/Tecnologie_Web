@@ -14,9 +14,12 @@ session_destroy();
 */
 ?>
 <?php include("../html/top.html");?>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
 <script src= "../js/home.js" ></script>
 <link href="../css/home.css" type="text/css" rel="stylesheet" >
-
+  
 </head>
 <body>
 
@@ -24,6 +27,7 @@ session_destroy();
 
 <hr>
 <div id="body-block">
+    <span class=".ErrorStr"></span>
     <div id="search">
         <input id="search_bar" type="text">
         <img id="search_icon" src="../img/search.png" alt="search_icon">
@@ -32,7 +36,9 @@ session_destroy();
         <ul id="categories">
 
         </ul>
-        <!--Potremmo inserire range di prezzo-->
+        
+        <input type="range" id="nfp" min="1" max="25" step="2" value="">
+        <span id="valRange"></span>
     </div>
     <div id="products">
 

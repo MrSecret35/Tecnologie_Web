@@ -5,6 +5,9 @@ $(function(){
     $("#myBTN").click(function(){  location.href= "../php/profile.php";});
 }); 
 
+/*
+ * funzione che effettua la richiesta della lista dei preferiti al server(ajax)
+ */
 function showProduct(){
     $.ajax({
         url: "../php/favorites.php",
@@ -15,6 +18,10 @@ function showProduct(){
     });
 }
 
+/*
+ * mostra(crea gli elementi <li> ed i stotto elementi) la lista dei preferiti
+  * json: argomento che indica i dati (lista di oggetti) da stampare
+ */
 function showListProduct(json){
     var data= JSON.parse(json);
     $("#body-block ul").empty();

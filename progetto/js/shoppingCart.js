@@ -4,7 +4,10 @@ $(function(){
     $("#order").click(order);
 }); 
 
-
+/*
+ * funzione che effettua l'ordine degli elementi nel carrello
+ * seguendo la quantita' indicata
+ */ 
 function order(){
     var dataStr=""; 
     elements=$('#body-block ul li');
@@ -32,6 +35,9 @@ function order(){
     
 }
 
+/*
+ * funzione che richiede al server la lista dei prodotti nel carrello
+ */
 function showProduct(){
     $.ajax({
         url: "../php/cart.php",
@@ -42,6 +48,10 @@ function showProduct(){
     });
 }
 
+/*
+* crea e imposta gli elem(<li>) di una lista
+* json: lista di oggetti da mostrare
+*/ 
 function showCartProduct(json){
     var data= JSON.parse(json);
     $("#body-block ul").empty();

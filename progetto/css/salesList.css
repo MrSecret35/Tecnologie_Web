@@ -1,11 +1,10 @@
 #body-block ul li{
-    width: 70%;
     display: inline-flex;
     height: 280px;
 }
 
 #body-block ul li span{
-    width: 100%;
+    width: 80%;
     display: inline-flex;
 }
 #body-block ul li span #div_img_product{

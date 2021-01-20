@@ -2,13 +2,17 @@ $(function(){
 
     document.getElementById("Registration").style.display = "none";
 
-    $("#p_registration_btn").click(setRegistration);
+    $("#p_registration_btn").click(setRegistration); //Button per abilitare la registrazione
 
-    $("#LoginBTN").click(LoginBTN);
-    $("#RegistrationBTN").click(RegistrationBTN);
+    $("#LoginBTN").click(LoginBTN); //Button per il Login
+
+    $("#RegistrationBTN").click(RegistrationBTN); //Button per la registrazione
 
 });
 
+/*
+ * funzione che effettua (se possibile) il login 
+ */
 function LoginBTN(){
     var email = $("#mail_login").val();
     var psw = $("#psw_login").val();
@@ -36,6 +40,9 @@ function LoginBTN(){
     }else $(".ErrorSTR").text("Campi vuoti!!!");
 }
 
+/*
+ * funzione che effettua (se possibile) la registrazione 
+ */
 function RegistrationBTN(){
     var email = $("#mail_reg").val();
     var psw = $("#psw_reg").val();
@@ -80,6 +87,9 @@ function RegistrationBTN(){
     }else $(".ErrorSTR").text("I campi mail e password sono obbligatori");
 }
 
+/*
+ * funzione che abilita (rende possibile) la registrazione 
+ */
 function setRegistration(){
     $(".ErrorSTR").text("");
 
@@ -94,18 +104,28 @@ function setRegistration(){
     $("#BTNBusiness").click(setRegistration_Business);
 }
 
+/*
+ * funzione che abilita (rende possibile) la registrazione come utente
+ */
 function setRegistration_User(){
     $("#User").css("display", "initial");
     $("#Business").css("display", "none");
     $("#RegistrationBTN").css("display", "initial");
 }
 
+/*
+ * funzione che abilita (rende possibile) la registrazione come azienda
+ */
 function setRegistration_Business(){
     $("#User").css("display", "none");
     $("#Business").css("display", "initial");
     $("#RegistrationBTN").css("display", "initial");
 }
 
+/*
+ * funzione che verifica se una stringa può eddere una mail
+ * str: stringa da controllare
+ */
 function verifymailtype(str){
     return str.indexOf('@') != -1 && str.indexOf('.',str.indexOf('@'))!= -1;
 }

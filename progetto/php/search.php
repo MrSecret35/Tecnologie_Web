@@ -40,6 +40,7 @@ try{
         }
 
         if(count($rows) != 0) {
+            
             $cat= $rows[0]["Category"];
             $cat= $db->quote($cat);
             $result1= $db->query("SELECT *
@@ -48,10 +49,12 @@ try{
                                     AND ID NOT IN (SELECT ID
                                                     FROM Products
                                                     WHERE Name LIKE $str OR Category LIKE $str)");
-            if($result1!= FALSE){
+            if($result1 != FALSE){
+                $rows2 = array();
+                
                 while($row1 = $result1->fetch()){
-        
-                    if($row["Img"] != null){
+                    if($row1["Img"] != null){
+                        
                         $new_row["ID"]= $row1["ID"];
                         $new_row["Name"]= $row1["Name"];
                         $new_row["Description"]= $row1["Description"];
@@ -61,15 +64,23 @@ try{
                         $new_row["Price"]= $row1["Price"];
                         $new_row["Discount"]= $row1["Discount"];
                         $new_row["ID_Seller"]= $row1["ID_Seller"];
-            
+                        
                         
                         $rows2[]= $new_row;
                     }else{
+                        
                         $rows2[]= $row1;
+                        
                     }
-                    $rows= array_merge($rows,$rows2);
+                    
                 }
+                
+                   
+                
+               
+                $rows= array_merge($rows,$rows2);
             }
+            
             
         }
         

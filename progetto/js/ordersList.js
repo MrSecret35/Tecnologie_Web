@@ -5,16 +5,23 @@ $(function(){
     $("#myBTN").click(function(){  location.href= "../php/profile.php";});
 }); 
 
+/*
+ * funzione che richiede al server la lista dei prodotti ordinati
+ */
 function showProduct(){
     $.ajax({
         url: "../php/orders.php",
         type: "GET",
         datatype: "json",
-        success: showCartProduct,
+        success: showOrderProduct,
     });
 }
 
-function showCartProduct(json){
+/*
+* crea e imposta gli elem(<li>) di una lista
+* json: lista di oggetti da mostrare
+*/ 
+function showOrderProduct(json){
     var data= JSON.parse(json);
     $("#body-block ul").empty();
 

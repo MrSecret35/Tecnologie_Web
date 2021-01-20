@@ -3,6 +3,29 @@ NUM_ELEM_PAG= 3;
 $(function(){
     $("#search_icon").click(search);
 
+    $("#cart").on('drop',function(ev){
+        ev.preventDefault();
+        var ID_Product = ev.originalEvent.dataTransfer.getData("ID");
+        $.ajax({
+            url: "../php/addElement.php",
+            type: "GET",
+            data: "To=" + "Cart" + "&ID_Product=" + ID_Product,
+            datatype: "json",
+            success: function(json){
+                if(JSON.parse(json).result == "TRUE"){
+                    location.href= "../php/shoppingCart.php";
+                }else{
+                    $(".ErrorSTR").text(JSON.parse(json).StrErr);
+                }
+            },
+            error: function(){$(".ErrorSTR").text("Error\n Server Offline");},
+        });
+    });
+
+    $("#cart").on('dragover',function(ev){
+        ev.preventDefault();
+    });
+
     $(document).keypress(function(e) { 
         if(e.which == 13) { 
             search();
@@ -12,8 +35,27 @@ $(function(){
     setCategories();
 
     allProduct();
+
+    $("nfp").val(NUM_ELEM_PAG);
+
+    //$("#valRange").html($("nfp").val()+ "ccc");
+
+    $(document).on('input change', '#nfp', function() {
+        $('#valRange').html( $(this).val() );
+        NUM_ELEM_PAG= $(this).val();
+
+        
+        if($("#search_bar").val().length==0) allProduct();
+        else search();
+    });
+
+
+
 });
 
+/*
+ * funzione che richiede al server la ricerca di una stringa inserita dall'utente 
+ */
 function search(){
     var str = $("#search_bar").val();
     if(str.length != 0){
@@ -26,6 +68,9 @@ function search(){
     }
 }
 
+/*
+ * funzione che richiede al server la lista di tutti i prodotti disponibili 
+ */
 function allProduct(){
     $.ajax({
         url: "../php/product.php",
@@ -34,6 +79,7 @@ function allProduct(){
         success: showResultSearch,
     });
 }
+
 /*
 * crea e mostra i primi NUM_ELEM_PAG prodotti e le prime 4 pagine
 */ 
@@ -43,6 +89,7 @@ function showResultSearch(json){
 
     createPage(json);
     showFourPage(1); //mostro le prime 4 pagine
+
     if(JSON.parse(json).length == 0){
         $("#notification").html("La tua ricerca non ha prodotto risultati");
     }
@@ -66,6 +113,15 @@ function showNResult(json,num){
 
         var li= $('<li></li>');
         li.addClass("li_product");
+        li.attr("draggable", "true");
+
+        li.attr("id", element.ID);
+        /*
+        li.attr("ondragstart", function drag(event){   
+            event.dataTransfer.setData("Item", event.target.id);
+        });
+        */
+
         var a = $('<a></a>')
         a.attr("href", "../php/productPage.php?ID_Product="+element.ID);
 
@@ -92,10 +148,17 @@ function showNResult(json,num){
         a.append(span);
 
         li.append(a);
+
+        li.on("dragstart", function drag(ev) {
+            ev.originalEvent.dataTransfer.setData("ID", $(this).attr('id'));
+        });
+
         $("#ul_products").append(li);
+        
         //a.append(li);
         //$("#ul_products").append(a);
     }
+
 }
 
 /*
@@ -136,16 +199,19 @@ function makeIdPage(j){
 }
 
 /*
- *funzione che rende visibile solo 4 pagine da num-1 a num+2
+ *funzione che rende visibile solo (max)4 pagine da num-1 a num+2
  * num: numero pagina attualmente selezionata 
 */
 function showFourPage(num){
-    for(var i=0; i< $("#page_products ul li").length; i++){
-        if(i>=num-1 || i<= num+2) $(makeIdPage(i)).css("display", "none");
-        else $(makeIdPage(i)).css("display","initial" );
+    for(var i=1; i< $("#page_products ul li").length+1; i++){
+        if(i>num+2 || i<num-1) $("#" + makeIdPage(i)).css("display", "none");
+        else $("#" + makeIdPage(i)).css("display","initial" );
     }
 }
 
+/*
+ * funzione che richiede al server la lista delle categorie 
+ */
 function setCategories(){
     $("#categories").empty();
     $.ajax({
@@ -155,6 +221,10 @@ function setCategories(){
     });
 }
 
+/*
+ * funzione che rende visibili e navigabili le categorie
+ * json: lita di categorie
+ */
 function showCategories(json){
     var data= JSON.parse(json);
     data.forEach(elem => {

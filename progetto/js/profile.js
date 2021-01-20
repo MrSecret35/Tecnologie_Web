@@ -9,6 +9,9 @@ $(function(){
     $("#newAddress").click(newaddress);
 });
 
+/*
+ * funzione che richiede al server i dati dell'utente
+ */
 function setPersonalData(){
     $.ajax({
         url: "../php/personalData.php",
@@ -31,6 +34,9 @@ function setPersonalData(){
     });
 }
 
+/*
+ * funzione che richiede al server gli indirizzi dell'utente
+ */
 function listAddress(){
     $.ajax({
         url: "../php/addresses.php",
@@ -46,6 +52,11 @@ function listAddress(){
         },
     });
 }
+
+/*
+ * funzione che mostra gli indirizzi dell'utente
+ * json: lista di oggetti(indirizzi) da mostrare
+ */
 function showAddress(json){
     JSON.parse(json).forEach(element => {
         var div = $('<div></div>');
@@ -74,12 +85,18 @@ function showAddress(json){
     });
 }
 
+/*
+ * funzione che abilita l'aggiunta di un nuovo indirizzo
+ */
 function newaddress(){
     $("#newAddress").css("display", "none");
     $("#divNewAddress").css("display", "inherit");
     $("#addNewAddress").click(addNewAddress);
 }
 
+/*
+ * funzione che aggiunge un nuovo indirizzo
+ */
 function addNewAddress(){
     
     if(    $("#State").val().length!=0

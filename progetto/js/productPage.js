@@ -7,6 +7,9 @@ $(function(){
     $("#buttonDiv #list").click(addElementList);
 });
 
+/*
+ * funzione che richiede al server i dati del prodotto
+ */
 function SetDataProduct(){
 
     $.ajax({
@@ -19,6 +22,11 @@ function SetDataProduct(){
 
 }
 
+/*
+ * funzione che scrive/mosta i dati del prodotto
+ * richiede i dati del venditore
+ * json: dati del prodotto
+ */
 function WriteDataProduct(json){
 
     var data= JSON.parse(json);
@@ -54,6 +62,10 @@ function WriteDataProduct(json){
     
 }
 
+/*
+ * funzione che scrive/mosta i dati del venditore
+ * json: dati del venditore
+ */
 function WriteDataSeller(json){
     $("#SellerData ul").empty();
     var data = JSON.parse(json);
@@ -69,6 +81,9 @@ function WriteDataSeller(json){
     }
 }
 
+/*
+ * oggiunge il prodotto al carrello
+ */
 function addElementCart(){
     var qty= $("#ProductData #Qty").html().split(':')[1];
     qty= parseInt(qty);
@@ -93,6 +108,9 @@ function addElementCart(){
     }
 }
 
+/*
+ * oggiunge il prodotto alla lista dei preferiti
+ */
 function addElementList(){
     $.ajax({
         url: "../php/addElement.php",

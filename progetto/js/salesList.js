@@ -5,6 +5,9 @@ $(function(){
     $("#myBTN").click(function(){  location.href= "../php/profile.php";});
 }); 
 
+/*
+ * funzione che richiede al server la lista dei prodotti messi in vendita
+ */
 function showProduct(){
     $.ajax({
         url: "../php/sale.php",
@@ -15,6 +18,10 @@ function showProduct(){
     });
 }
 
+/*
+* crea e imposta gli elem(<li>) di una lista
+* json: lista di oggetti da mostrare
+*/ 
 function showListProduct(json){
     var data= JSON.parse(json);
     $("#body-block ul").empty();
@@ -109,6 +116,9 @@ function showListProduct(json){
     }
 }
 
+/*
+ * funzione che abilita la modifica dei dati di un elemento
+ */
 function abilitaModificaDati(){
     ID_Product= giveID($(this).attr('id'));
     console.log(ID_Product);
@@ -123,6 +133,10 @@ function abilitaModificaDati(){
     $("#"+ID_Product+"_Discount").attr('readonly', false); 
 }
 
+/*
+ * funzione che modifica i dati di un elemento
+ * (richiede al server la modifica dei dati)
+ */
 function modProduct(){
     ID_Product= giveID($(this).attr('id'));
 
@@ -146,7 +160,10 @@ function modProduct(){
     });
 }
 
-
+/*
+ * funzione che rimuove un elemento dalla lista
+ * (richiede al server la rimozione dalla lista)
+ */
 function removeProduct() {
     $.ajax({
         url: "../php/removeProduct.php",
@@ -161,6 +178,10 @@ function removeProduct() {
     });
 }
 
+/*
+ * funzione che ottiene l'id di un product da l'id di un <li> element
+ * str : id di un <li> element
+ */
 function giveID(str){
     return parseInt(str.split("_")[0]);
 }
