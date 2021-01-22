@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
+    header('Location: ../../html/login.html');
+    exit;
+}
 
 if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 	header("HTTP/1.1 400 Invalid Request");
@@ -10,15 +16,10 @@ if (!isset($_GET["ID_Product"]) || !isset($_GET["To"])) {
 	die("ERROR 400: Invalid data.");
 }
 
-session_start();
-
-if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
-    header('Location: ../html/login.html');
-    exit;
-}
 
 try{
-    $db = new PDO("mysql:dbname=bestecommerceever;host=localhost:3306", "root", "");
+    include("connectionDB.php");
+    $db =connect();
     
     $ID_Product= $db->quote($_GET["ID_Product"]);
     $ID_User = $_SESSION["ID"];

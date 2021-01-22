@@ -10,7 +10,7 @@ $(function(){
 function setCategories(){
     $("#category").empty();
     $.ajax({
-        url: "../php/categories.php",
+        url: "../php/function/categories.php",
         datatype: "json",
         success: showCategories,
     });
@@ -55,7 +55,7 @@ function newProduct(){
 
     if(controllaDati(data)){
         $.ajax({
-            url: "../php/insertProduct.php?"+strData,
+            url: "../php/function/insertProduct.php?"+strData,
             type: "POST",
             data: Form_Data,
             contentType:false,

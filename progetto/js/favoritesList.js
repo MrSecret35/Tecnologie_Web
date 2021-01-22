@@ -10,7 +10,7 @@ $(function(){
  */
 function showProduct(){
     $.ajax({
-        url: "../php/favorites.php",
+        url: "../php/function/favorites.php",
         type: "GET",
         datatype: "json",
         success: showListProduct,
@@ -65,7 +65,7 @@ function showListProduct(json){
             btnR.html("Rimuovi dalla Lista");
             btnR.click(function(){
                 $.ajax({
-                    url: "../php/removeElement.php",
+                    url: "../php/function/removeElement.php",
                     type: "GET",
                     data: "From="+ "List" + "&ID_Product=" + element.ID_Product,
                     datatype: "json",
@@ -81,14 +81,14 @@ function showListProduct(json){
             btnC.html("Sposta nel carrello");
             btnC.click(function(){
                 $.ajax({
-                    url: "../php/addElement.php",
+                    url: "../php/function/addElement.php",
                     type: "GET",
                     data: "To="+ "Cart" + "&ID_Product=" + element.ID_Product,
                     datatype: "json",
                     success: function(json){
                         if(JSON.parse(json).result == "TRUE") {
                             $.ajax({
-                                url: "../php/removeElement.php",
+                                url: "../php/function/removeElement.php",
                                 type: "GET",
                                 data: "From="+ "List" + "&ID_Product=" + element.ID_Product,
                                 datatype: "json",

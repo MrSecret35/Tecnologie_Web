@@ -14,7 +14,7 @@ $(function(){
  */
 function setPersonalData(){
     $.ajax({
-        url: "../php/personalData.php",
+        url: "../php/function/personalData.php",
         type: "GET",
         data : "",
         datatype: "json",
@@ -39,13 +39,12 @@ function setPersonalData(){
  */
 function listAddress(){
     $.ajax({
-        url: "../php/addresses.php",
+        url: "../php/function/addresses.php",
         type: "GET",
         datatype: "json",
         success: function(json){  
             if(JSON.parse(json).length >= 1){
                 showAddress(json);
-
             }else{
                 $("#AddressStr").html("Non hai inserito Indirizzi");
             }
@@ -58,6 +57,7 @@ function listAddress(){
  * json: lista di oggetti(indirizzi) da mostrare
  */
 function showAddress(json){
+    $(".Address").remove()
     JSON.parse(json).forEach(element => {
         var div = $('<div></div>');
         div.addClass("Address");
@@ -110,7 +110,7 @@ function addNewAddress(){
                             + "&StreetN=" + $("#StreetN").val()
         
         $.ajax({
-            url: "../php/addAddress.php",
+            url: "../php/function/addAddress.php",
             type: "GET",
             data : StrData,
             datatype: "json",
@@ -119,9 +119,6 @@ function addNewAddress(){
                     
                     $("#newAddress").css("display", "inherit");
                     $("#divNewAddress").css("display", "none");
-                    $("#divNewAddress").find("input").array.forEach(element => {
-                        element.val("");
-                    }); 
                     listAddress();
                 }else{
                     $(".ErrorSTR").text(JSON.parse(json).StrErr);

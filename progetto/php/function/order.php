@@ -8,13 +8,14 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 session_start();
 
 if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
-    header('Location: ../html/login.html');
+    header('Location: ../../html/login.html');
     exit;
 }
 
 try{
 
-    $db = new PDO("mysql:dbname=bestecommerceever;host=localhost:3306", "root", "");
+    include("connectionDB.php");
+    $db =connect();
     
     $id= $_SESSION["ID"];
 

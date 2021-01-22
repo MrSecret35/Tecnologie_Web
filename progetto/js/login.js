@@ -22,12 +22,11 @@ function LoginBTN(){
     if(email.length!=0 && psw.length!=0 ){
     if(verifymailtype(email)){
         $.ajax({
-            url: "../php/login.php",
+            url: "../php/function/login.php",
             type: "POST",
             data : 'EMail=' + email + '&Psw=' + psw ,
             datatype: "json",
             success: function(json){
-                console.log(JSON.parse(json));
                 if(JSON.parse(json).result == "TRUE"){
                     location.href= "../php/index.php";
                 }else{
@@ -49,8 +48,6 @@ function RegistrationBTN(){
     var psw1 = $("#psw1_reg").val();  
     $(".ErrorSTR").text("");
 
-    console.log($("#mail_reg").val());
-    console.log($("#mail_reg").val());
     if(email.length!=0 && psw.length!=0){
     if(psw==psw1){
     if(verifymailtype(email)){
@@ -69,7 +66,7 @@ function RegistrationBTN(){
             if($("#tel_b_reg").val().length!=0) StrData += "&Tel=" + $("#tel_b_reg").val();
         }
         $.ajax({
-            url: "../php/registration.php",
+            url: "../php/function/registration.php",
             type: "POST",
             data : StrData,
             datatype: "json",

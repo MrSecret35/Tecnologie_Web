@@ -10,7 +10,7 @@ $(function(){
  */
 function showProduct(){
     $.ajax({
-        url: "../php/orders.php",
+        url: "../php/function/orders.php",
         type: "GET",
         datatype: "json",
         success: showOrderProduct,

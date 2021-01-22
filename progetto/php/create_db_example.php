@@ -3,7 +3,8 @@ $_NAME_DB= "BestECommerceEver";
 try{
 
     //mi connetto al server 
-    $db = new PDO("mysql:host=localhost:3306", "root", "");
+    include("../php/connectionDB.php");
+    $db =connect();
 
     //elimino il DB se esiste
     $db->exec("DROP DATABASE IF EXISTS $_NAME_DB");

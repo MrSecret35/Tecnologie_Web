@@ -7,7 +7,7 @@ $(function(){
         ev.preventDefault();
         var ID_Product = ev.originalEvent.dataTransfer.getData("ID");
         $.ajax({
-            url: "../php/addElement.php",
+            url: "../php/function/addElement.php",
             type: "GET",
             data: "To=" + "Cart" + "&ID_Product=" + ID_Product,
             datatype: "json",
@@ -60,7 +60,7 @@ function search(){
     var str = $("#search_bar").val();
     if(str.length != 0){
         $.ajax({
-            url: "../php/search.php?Str_Product=" + str,
+            url: "../php/function/search.php?Str_Product=" + str,
             type: "GET",
             datatype: "json",
             success: showResultSearch,
@@ -73,7 +73,7 @@ function search(){
  */
 function allProduct(){
     $.ajax({
-        url: "../php/product.php",
+        url: "../php/function/product.php",
         type: "GET",
         datatype: "json",
         success: showResultSearch,
@@ -154,9 +154,7 @@ function showNResult(json,num){
         });
 
         $("#ul_products").append(li);
-        
-        //a.append(li);
-        //$("#ul_products").append(a);
+
     }
 
 }
@@ -215,7 +213,7 @@ function showFourPage(num){
 function setCategories(){
     $("#categories").empty();
     $.ajax({
-        url: "../php/categories.php",
+        url: "../php/function/categories.php",
         datatype: "json",
         success: showCategories,
     });
@@ -233,7 +231,7 @@ function showCategories(json){
         li.html(cat);
         li.click(function(){
                 $.ajax({
-                url: "../php/search.php?Str_Product=" + cat,
+                url: "../php/function/search.php?Str_Product=" + cat,
                 type: "GET",
                 datatype: "json",
                 success: showResultSearch,

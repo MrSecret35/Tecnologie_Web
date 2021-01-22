@@ -13,7 +13,7 @@ $(function(){
 function SetDataProduct(){
 
     $.ajax({
-        url: "../php/search.php",
+        url: "../php/function/search.php",
         type: "GET",
         data: "ID_Product=" + ID_Product,
         datatype: "json",
@@ -50,7 +50,7 @@ function WriteDataProduct(json){
         $("#ProductData #Qty").html("Disponibilità:  " + element.Qty);
 
         $.ajax({
-            url: "../php/seller.php" ,
+            url: "../php/function/seller.php" ,
             type: "GET",
             data: "ID_Seller=" + element.ID_Seller,
             datatype: "json",
@@ -89,7 +89,7 @@ function addElementCart(){
     qty= parseInt(qty);
     if(qty> 0){
         $.ajax({
-            url: "../php/addElement.php",
+            url: "../php/function/addElement.php",
             type: "GET",
             data: "To=" + "Cart" + "&ID_Product=" + ID_Product,
             datatype: "json",
@@ -113,7 +113,7 @@ function addElementCart(){
  */
 function addElementList(){
     $.ajax({
-        url: "../php/addElement.php",
+        url: "../php/function/addElement.php",
         type: "GET",
         data: "To=" + "List" + "&ID_Product=" + ID_Product,
         datatype: "json",

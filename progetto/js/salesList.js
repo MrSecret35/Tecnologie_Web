@@ -10,7 +10,7 @@ $(function(){
  */
 function showProduct(){
     $.ajax({
-        url: "../php/sale.php",
+        url: "../php/function/sale.php",
         type: "GET",
         datatype: "json",
         success: showListProduct,
@@ -55,26 +55,26 @@ function showListProduct(json){
                         inputDesc.val(element.Description);
 
                     var table= $('<table></teble>');
-                        var tr1 =  $("<tr><td><p>Quantità:</p></td><td><p>Prezzo:</p></td><td><p>Sconto:</p></td></tr>");
+                        var tr1 =  $("<tr><td><p>Quantità:</p></td><td><p>Prezzo €:</p></td><td><p>Sconto %:</p></td></tr>");
                         var tr2 = $('<tr></tr>');
                             var td1 = $('<td></td>');   var td2 = $('<td></td>');   var td3 = $('<td></td>');
                             var inputQty = $('<input></input>');
-                                inputQty.attr('type', 'number');    
+                                inputQty.attr('type', 'number'); 
                                 inputQty.attr('class', 'input');   
                                 inputQty.attr('id', element.ID + "_Qty");
                                 inputQty.attr('readonly', true);  
                                 inputQty.val(element.Qty);
                             td1.append(inputQty);
                             var inputPrice = $('<input></input>');
-                                inputPrice.attr('type', 'number');    
+                                inputPrice.attr('type', 'number');  
                                 inputPrice.attr('class', 'input');   
                                 inputPrice.attr('id', element.ID + "_Price");
                                 inputPrice.attr('readonly', true);  
                                 inputPrice.val(element.Price);
                             td2.append(inputPrice);
                             var inputDiscount = $('<input></input>');
-                                inputDiscount.attr('type', 'number');    
-                                inputDiscount.attr('class', 'input');   
+                                inputDiscount.attr('type', 'number');   
+                                inputDiscount.attr('class', 'input');
                                 inputDiscount.attr('id', element.ID + "_Discount");
                                 inputDiscount.attr('readonly', true);  
                                 inputDiscount.val(element.Discount);
@@ -121,7 +121,6 @@ function showListProduct(json){
  */
 function abilitaModificaDati(){
     ID_Product= giveID($(this).attr('id'));
-    console.log(ID_Product);
 
     $("#"+ID_Product+"_modifyBTN").css('display', "none");
     $("#"+ID_Product+"_sendmodBTN").css('display', "initial");
@@ -139,34 +138,55 @@ function abilitaModificaDati(){
  */
 function modProduct(){
     ID_Product= giveID($(this).attr('id'));
+    $(".ErrorSTR").html("");
 
-    var DataStr= "" +
-        "ID_Product=" + ID_Product +
-        "&Name=" + $("#"+ID_Product+"_Name").val() +
-        "&Desc=" + $("#"+ID_Product+"_Desc").val() +
-        "&Qty=" + $("#"+ID_Product+"_Qty").val() +
-        "&Price=" + $("#"+ID_Product+"_Price").val() +
-        "&Discount=" + $("#"+ID_Product+"_Discount").val();
-    $.ajax({
-        url: "../php/modifyProduct.php",
-        type: "POST",
-        data: DataStr,
-        datatype: "json",
-        success: function(json){
-            if(JSON.parse(json).result == "TRUE") showProduct();
-            else $(".ErrorSTR").text(JSON.parse(json).StrErr);
-        },
-        error: function(){$(".ErrorSTR").html("Modifica non valida");}
-    });
+    if(controlNewData(ID_Product)){
+        var DataStr= "" +
+            "ID_Product=" + ID_Product +
+            "&Name=" + $("#"+ID_Product+"_Name").val() +
+            "&Desc=" + $("#"+ID_Product+"_Desc").val() +
+            "&Qty=" + $("#"+ID_Product+"_Qty").val() +
+            "&Price=" + $("#"+ID_Product+"_Price").val() +
+            "&Discount=" + $("#"+ID_Product+"_Discount").val();
+        $.ajax({
+            url: "../php/function/modifyProduct.php",
+            type: "POST",
+            data: DataStr,
+            datatype: "json",
+            success: function(json){
+                if(JSON.parse(json).result == "TRUE") showProduct();
+                else $(".ErrorSTR").text(JSON.parse(json).StrErr);
+            },
+            error: function(){$(".ErrorSTR").html("Modifica non valida");}
+        });
+    }
+    
 }
 
+/*
+ * funzione che controlla i nuovi dati del prodotto
+ */
+function controlNewData(ID_Product){
+    if($("#"+ID_Product+"_Name").val().length!=0)
+    if($("#"+ID_Product+"_Desc").val().length!=0)
+    if(parseInt($("#"+ID_Product+"_Qty").val()) >= 0)
+    if(parseInt($("#"+ID_Product+"_Price").val()) >= 0)
+    if(parseInt($("#"+ID_Product+"_Discount").val()) >= 0)
+        return true;
+    else $(".ErrorSTR").text("Campo Sconto negativo!!");
+    else $(".ErrorSTR").text("Campo Prezzo negativo!!");
+    else $(".ErrorSTR").text("Campo Quantità negativo!!");
+    else $(".ErrorSTR").text("Campo Descrizione vuoto!!");
+    else $(".ErrorSTR").text("Campo nome vuoto!!");
+     return false;
+}
 /*
  * funzione che rimuove un elemento dalla lista
  * (richiede al server la rimozione dalla lista)
  */
 function removeProduct() {
     $.ajax({
-        url: "../php/removeProduct.php",
+        url: "../php/function/removeProduct.php",
         type: "POST",
         data: "ID_Product=" + giveID($(this).attr('id')),
         datatype: "json",

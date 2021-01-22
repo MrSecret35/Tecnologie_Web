@@ -19,7 +19,7 @@ function order(){
     }
 
     $.ajax({
-        url: "../php/order.php",
+        url: "../php/function/order.php",
         type: "GET",
         data: dataStr,
         datatype: "json",
@@ -40,7 +40,7 @@ function order(){
  */
 function showProduct(){
     $.ajax({
-        url: "../php/cart.php",
+        url: "../php/function/cart.php",
         type: "GET",
         datatype: "json",
         success: showCartProduct,
@@ -103,7 +103,7 @@ function showCartProduct(json){
             btnR.html("Rimuovi");
             btnR.click(function(){
                 $.ajax({
-                    url: "../php/removeElement.php",
+                    url: "../php/function/removeElement.php",
                     type: "GET",
                     data: "From="+ "Cart" + "&ID_Product=" + element.ID_Product,
                     datatype: "json",

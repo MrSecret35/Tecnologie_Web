@@ -6,16 +6,18 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") 
 }
 
 try {
-    $db = new PDO("mysql:dbname=bestecommerceever;host=localhost:3306", "root", "");
-    $mail= $db->quote($_POST["EMail"]);
-    $psw= $db->quote($_POST["Psw"]);
+    include("connectionDB.php");
+    $db =connect();
+    
+    $mail= $db->quote(htmlspecialchars($_POST["EMail"]));
+    $psw= $db->quote(htmlspecialchars($_POST["Psw"]));
 
     $id_user= $db->query("SELECT ID FROM Users WHERE EMail LIKE $mail");
     $result= $id_user->fetch();
     if($result==FALSE){
         if(strcmp($_POST["Type"],"User") == 0){
-            $name= isset($_POST["Name"]) ? $db->quote($_POST["Name"]) : "NULL";
-            $surname= isset($_POST["Surname"]) ? $db->quote($_POST["Surname"]) : "NULL";
+            $name= isset($_POST["Name"]) ? $db->quote(htmlspecialchars($_POST["Name"])) : "NULL";
+            $surname= isset($_POST["Surname"]) ? $db->quote(htmlspecialchars($_POST["Surname"])) : "NULL";
             $db->query("INSERT INTO Users (EMail,Psw,Name,Surname) VALUES ($mail,$psw,$name,$surname);");
             
             $id_user= $db->query("SELECT ID FROM Users WHERE EMail LIKE $mail");
@@ -29,10 +31,10 @@ try {
 
             $id= $db->quote($id_user);
 
-            $name= isset($_POST["Name"]) ? $db->quote($_POST["Name"]) : "NULL";
-            $desc= isset($_POST["Desc"]) ? $db->quote($_POST["Desc"]) : "NULL";
-            $link= isset($_POST["Link"]) ? $db->quote($_POST["Link"]) : "NULL";
-            $tel= isset($_POST["Tel"]) ? $db->quote($_POST["Tel"]) : "NULL";
+            $name= isset($_POST["Name"]) ? htmlspecialchars($db->quote($_POST["Name"])) : "NULL";
+            $desc= isset($_POST["Desc"]) ? htmlspecialchars($db->quote($_POST["Desc"])) : "NULL";
+            $link= isset($_POST["Link"]) ? htmlspecialchars($db->quote($_POST["Link"])) : "NULL";
+            $tel= isset($_POST["Tel"]) ? htmlspecialchars($db->quote($_POST["Tel"])) : "NULL";
     
             
             $db->query("INSERT INTO Business VALUES ($name,$desc,$link,$tel,$id);");

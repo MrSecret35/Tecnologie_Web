@@ -5,7 +5,9 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 }
 
 try{
-    $db = new PDO("mysql:dbname=bestecommerceever;host=localhost:3306", "root", "");
+    include("connectionDB.php");
+    $db =connect();
+    
     $rows = array();
 
     if(isset($_GET["Str_Product"])){

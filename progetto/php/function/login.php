@@ -6,7 +6,9 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") 
 }
 
 try {
-    $db = new PDO("mysql:dbname=bestecommerceever;host=localhost:3306", "root", "");
+    include("connectionDB.php");
+    $db =connect();
+    
     $mail= $db->quote($_POST["EMail"]);
     $psw= $db->quote($_POST["Psw"]);
 
