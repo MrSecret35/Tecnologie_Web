@@ -1,5 +1,9 @@
-NUM_ELEM_PAG= 3;
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
 
+NUM_ELEM_PAG= 3;
 $(function(){
     $("#search_icon").click(search);
 

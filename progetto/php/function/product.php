@@ -1,4 +1,13 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+
+/*
+    funzione php per restituire tutti i prodotti presenti nel DB
+    e che siano disponibili(la qty maggiore di 0)
+*/
 
 try{
     include("connectionDB.php");

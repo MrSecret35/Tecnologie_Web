@@ -1,5 +1,12 @@
-<?php 
-
+<?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/ 
+/*
+    funzione utilizzata per l'aggiunta di un nuovo Indirizzo 
+    nella tabella Adresses del DataBase e sarà associato all'utente ID della Session
+*/
 session_start();
 
 if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
@@ -7,8 +14,13 @@ if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
     exit;
 }
 
-if (!isset($_GET["State"]) || !isset($_GET["City"]) || !isset($_GET["Street"]) || !isset($_GET["StreetN"])) {
+if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 	header("HTTP/1.1 400 Invalid Request");
+	die("ERROR 400: Invalid request.");
+}
+
+if (!isset($_GET["State"]) || !isset($_GET["City"]) || !isset($_GET["Street"]) || !isset($_GET["StreetN"])) {
+	header("HTTP/1.1 400 Invalid Data");
 	die("ERROR 400: Invalid data.");
 }
 

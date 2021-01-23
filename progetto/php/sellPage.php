@@ -1,4 +1,8 @@
 <?php 
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
 
 session_start();
 

@@ -1,10 +1,21 @@
 <?php 
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per effettuare il login e creare la sessione
+*/
 
 if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") {
 	header("HTTP/1.1 400 Invalid Request");
 	die("ERROR 400: Invalid request - This service accepts only POST requests.");
 }
 
+if (!isset($_POST["EMail"]) || !isset($_POST["Psw"])) {
+	header("HTTP/1.1 400 Invalid Data");
+	die("ERROR 400: Invalid data.");
+}
 try {
     include("connectionDB.php");
     $db =connect();
@@ -18,7 +29,6 @@ try {
     print "{\n \"result\": ";
     $result= $id_user->fetch();
     $id= $result["ID"];
-    //controllo se l'utente è un Business
     
 
     if($result==FALSE){
@@ -30,8 +40,8 @@ try {
 
         $userB= $db->query("SELECT * FROM Business WHERE ID = $id")->fetch();
 
-        session_start();
-        $_SESSION["ID"]= $id;
+        session_start();//creazioendella sessione
+        $_SESSION["ID"]= $id; // inserimento ID nella sessione
         if($userB != FALSE) $_SESSION["UserBusiness"]= TRUE;
         else $_SESSION["UserBusiness"]= FALSE;
 

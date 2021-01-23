@@ -1,3 +1,4 @@
+
 .banner_btn a{
     text-decoration: none;
     color: white;
@@ -56,7 +57,7 @@
 	width: 100%;
 	transform-origin: top;
     transition: transform 0.3s linear;
-    background-color: #fbca00;
+    background: yellow;
     padding: 0px;
     width: 190px;
     border-radius: 0px 12px 12px 12px;
@@ -69,14 +70,23 @@
     color: black;
     font-size: 16pt;
     font-family: Helvetica;
+
+    background-color: #fbca00;
+    margin-bottom: 2.6%;
     
+}
+#lista_profilo ul li:first-child{
+    border-radius: 0px 12px 0px 0px;
+}
+#lista_profilo ul li:last-child{
+    border-radius: 0px 0px 12px 12px;
+    margin-bottom: 0px;
 }
 #lista_profilo ul li a{
     color: black;
 }
 #lista_profilo ul li:hover{
     background-color: #ffd62f;
-    border-radius: 0px 12px 12px 12px;
 }
 
 #lista_profilo ul hr{

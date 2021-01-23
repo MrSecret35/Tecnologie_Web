@@ -1,17 +1,15 @@
 <?php 
-
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
 session_start();
 
 if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
     header('Location: ../html/login.html');
     exit;
-}else{
-    //print $_SESSION["ID"];
 }
-/*
-session_unset();   
-session_destroy();
-*/
+
 ?>
 <?php include("../html/top.html");?>
 

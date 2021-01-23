@@ -1,4 +1,9 @@
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
 $(function(){
+
     showProduct();
 
     $("#homeBTN").click(function(){  location.href= "../php/index.php";});

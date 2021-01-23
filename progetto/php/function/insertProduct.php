@@ -1,4 +1,12 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per inserire un nuovo predotto nel DataBase
+*/
+
 session_start();
 
 if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
@@ -12,7 +20,7 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") 
 }
 
 if (!isset($_GET["Name"]) || !isset($_GET["Desc"]) || !isset($_GET["Qty"]) || !isset($_GET["Cat"]) || !isset($_GET["Price"])) {
-	header("HTTP/1.1 400 Invalid Request");
+	header("HTTP/1.1 400 Invalid Data");
 	die("ERROR 400: Invalid data.");
 }
 

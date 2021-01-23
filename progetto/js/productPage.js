@@ -1,5 +1,8 @@
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
 var ID_Product = new URL(window.location.href).searchParams.get("ID_Product");
-
 $(function(){
     SetDataProduct();
 

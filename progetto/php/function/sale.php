@@ -1,4 +1,11 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per ottenere tutti i prodotti che ha messo in vendita l'utente della Session
+*/
 
 session_start();
 

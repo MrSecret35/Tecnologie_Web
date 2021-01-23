@@ -1,4 +1,12 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per restituire tutti i prodotti presenti nella lista preferiti dell'utente della sessione
+    in modalità JSON
+*/
 
 session_start();
 

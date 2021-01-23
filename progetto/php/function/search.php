@@ -1,4 +1,14 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per effettuare una ricerca
+    -tramine ID restituisce un prodotto
+    -tramite str(Stringa) cerca nel DB la stringa come Category oppure Name
+*/
+
 if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 	header("HTTP/1.1 400 Invalid Request");
 	die("ERROR 400: Invalid request.");

@@ -1,8 +1,20 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per ottenere i dati di un venditore di un prodotto
+*/
 if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 	header("HTTP/1.1 400 Invalid Request");
 	die("ERROR 400: Invalid request.");
 }
+if (!isset($_GET["ID_Seller"])) {
+	header("HTTP/1.1 400 Invalid Data");
+	die("ERROR 400: Invalid data.");
+}
+
 
 try{
     include("connectionDB.php");

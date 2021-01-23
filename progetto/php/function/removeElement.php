@@ -1,4 +1,13 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+
+/*
+    funzione php per rimuovere un prodotto dal carrello o la lista preferiti dell'utente della sessione
+*/
+
 session_start();
 
 if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
@@ -12,7 +21,7 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "GET") {
 }
 
 if (!isset($_GET["ID_Product"]) || !isset($_GET["From"]) ) {
-	header("HTTP/1.1 400 Invalid Request");
+	header("HTTP/1.1 400 Invalid Data");
 	die("ERROR 400: Invalid data.");
 }
 

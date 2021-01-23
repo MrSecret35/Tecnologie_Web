@@ -1,10 +1,12 @@
 <?php
-session_start();
-
-if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
-    header('Location: ../../html/login.html');
-    exit;
-}
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php che restituiscce un array Json contenente 
+    tutte le categorie presenti nella tabella Categories del BD
+*/
 
 try{
     include("connectionDB.php");

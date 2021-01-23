@@ -1,3 +1,7 @@
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
 $(function(){
 
     setPersonalData();

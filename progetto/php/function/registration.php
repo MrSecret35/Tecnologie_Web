@@ -1,5 +1,12 @@
 <?php 
-
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per registrare un nuovo utente
+    se possibile crea la sessione e setta l'ID
+*/
 if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") {
 	header("HTTP/1.1 400 Invalid Request");
 	die("ERROR 400: Invalid request - This service accepts only POST requests.");

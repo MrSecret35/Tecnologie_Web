@@ -1,4 +1,11 @@
 <?php
+/*
+    @autor: Giorgio Mecca
+    Matricola : 880847
+*/
+/*
+    funzione php per modificare i dati di un Product
+*/
 
 session_start();
 
@@ -13,7 +20,7 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") 
 }
 
 if (!isset($_POST["Name"]) || !isset($_POST["Desc"]) || !isset($_POST["Qty"]) || !isset($_POST["Price"]) || !isset($_POST["Discount"])) {
-	header("HTTP/1.1 400 Invalid Request");
+	header("HTTP/1.1 400 Invalid Dats");
 	die("ERROR 400: Invalid data.");
 }
 
