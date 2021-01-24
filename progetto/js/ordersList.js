@@ -48,7 +48,7 @@ function showOrderProduct(json){
 
                 var div2 = $('<div></div>');    div2.attr('id', 'div_Str_product');
 
-                div2.html(element.Name  + '<br>' + "Data Ordine:   " + element.DataOrder);
+                div2.html(element.Name  + '<br>' + "Data Ordine:   " + element.DataOrder + '<br>' + "Quantità:   " + element.Qty);
 
             span.append(div1);
             span.append(div2);

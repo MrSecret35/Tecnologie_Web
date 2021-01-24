@@ -26,15 +26,20 @@ try{
         $result= $db->query("SELECT *
                             FROM Users
                             WHERE ID = $id");
+        $result= $result->fetch(PDO::FETCH_ASSOC);
     }else{
-        print "Business,\n";
-        $result= $db->query("SELECT *
+        print "\"Business\",\n";
+        $resultU= $db->query("SELECT EMail
+                            FROM Users
+                            WHERE ID = $id");
+        $resultB= $db->query("SELECT *
                             FROM Business
                             WHERE ID = $id");
+        $result = array_merge($resultU->fetch(PDO::FETCH_ASSOC), $resultB->fetch(PDO::FETCH_ASSOC));
     }
     print "\"Data\": ";
     if($result!=FALSE){
-        $result= $result->fetch(PDO::FETCH_ASSOC);
+        
         
         print json_encode($result);
     }else{

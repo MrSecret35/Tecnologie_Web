@@ -32,7 +32,7 @@ try{
     
     $name= $db->quote(htmlspecialchars($_GET["Name"]));
     $desc= $db->quote(htmlspecialchars($_GET["Desc"]));
-    if(isset($_SESSION["img"])) $img= "'{" + addslashes(file_get_contents($_FILES['img']['tmp_name'])) + "}'";
+    if(!empty( $_FILES['img']['tmp_name'] )) $img= "'" . addslashes(file_get_contents($_FILES["img"]['tmp_name'])) . "'";
     else $img="NULL";
     $qty= $db->quote(htmlspecialchars($_GET["Qty"]));
     $cat= $db->quote(htmlspecialchars($_GET["Cat"]));

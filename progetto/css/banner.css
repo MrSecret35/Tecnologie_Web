@@ -84,6 +84,9 @@
 }
 #lista_profilo ul li a{
     color: black;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 #lista_profilo ul li:hover{
     background-color: #ffd62f;

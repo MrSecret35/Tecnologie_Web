@@ -41,7 +41,6 @@ function newProduct(){
     var data= new Array();
     data['name'] = $("#sell_div #name").val();
     data['desc'] = $("#sell_div #desc").val();
-    data['img'] = $("#sell_div #img").val();
     data['qty'] = $("#sell_div #qty").val();
     data['cat'] = $("#sell_div #category").val();
     data['price'] = $("#sell_div #price").val();
@@ -54,9 +53,8 @@ function newProduct(){
                     + "&Price=" + data['price'];
 
     var Form_Data = new FormData();
-
-    Form_Data.append("img", $("#sell_div #img").prop('files')[0]);
-
+    if($("#sell_div #img").val().length != 0) Form_Data.append("img", $("#sell_div #img").prop('files')[0]);
+    
     if(controllaDati(data)){
         $.ajax({
             url: "../php/function/insertProduct.php?"+strData,

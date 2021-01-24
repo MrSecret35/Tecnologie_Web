@@ -34,7 +34,7 @@ if (session_id() == '' || !isset($_SESSION) || !isset($_SESSION["ID"])) {
                     <img src="" alt="">
                 </div>
                 <div id="div_Str_product">
-                    ciaooo come vaaaa
+                    
                 </div>
             </span>
             </a>

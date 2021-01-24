@@ -47,6 +47,7 @@ function LoginBTN(){
  * funzione che effettua (se possibile) la registrazione 
  */
 function RegistrationBTN(){
+    
     var email = $("#mail_reg").val();
     var psw = $("#psw_reg").val();
     var psw1 = $("#psw1_reg").val();  

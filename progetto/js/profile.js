@@ -29,10 +29,10 @@ function setPersonalData(){
                 $("#UserInfo").find("#Name").html(data.Data.Name ? data.Data.Name : "//");
                 $("#UserInfo").find("#Surname").html(data.Data.Surname ? data.Data.Surname : "//");
             }else{
-                $("#UserInfo").find("#Mail").html(data.Data.EMail);
-                $("#UserInfo").find("#Name").html(data.Data.Name ? data.Data.Name: "//");
-                $("#UserInfo").find("#Link").html(data.Data.Link ? data.Data.Link : "//");
-                $("#UserInfo").find("#NTel").html(data.Data.PhoneN ? data.Data.PhoneN : "//");
+                $("#BusinessInfo").find("#Mail").html(data.Data.EMail);
+                $("#BusinessInfo").find("#Name").html(data.Data.Name ? data.Data.Name: "//");
+                $("#BusinessInfo").find("#Link").html(data.Data.Link ? data.Data.Link : "//");
+                $("#BusinessInfo").find("#NTel").html(data.Data.PhoneN ? data.Data.PhoneN : "//");
             }
         },        
     });
@@ -48,6 +48,7 @@ function listAddress(){
         datatype: "json",
         success: function(json){  
             if(JSON.parse(json).length >= 1){
+                $("#AddressStr").html("");
                 showAddress(json);
             }else{
                 $("#AddressStr").html("Non hai inserito Indirizzi");
