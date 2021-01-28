@@ -109,7 +109,7 @@ function showCartProduct(json){
                 $.ajax({
                     url: "../php/function/removeElement.php",
                     type: "GET",
-                    data: "From="+ "Cart" + "&ID_Product=" + element.ID_Product,
+                    data: "From="+ "Cart" + "&ID_Product=" + $(this).parent().parent().attr('id'),
                     datatype: "json",
                     success: function(json){
                         if(JSON.parse(json).result == "TRUE") showProduct();
